@@ -34,9 +34,9 @@ class MovieApi extends React.Component {
     render() {
         return (
             <div>
-                <h2>{this.state.movies.map((movie) => {
+                {this.state.movies.map((movie) => {
                     return <SingleMovie movie={movie} key={movie.id}/>
-                })};</h2>
+                })};
                 <h1>Hey gurl</h1>
             </div>
         )
