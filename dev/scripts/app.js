@@ -7,9 +7,8 @@ class App extends React.Component {
     render() {
       return (
         <div>
-          <SpotifyApi />
-          
           <MovieApi />
+          <SpotifyApi />
         </div>
       )
     }
