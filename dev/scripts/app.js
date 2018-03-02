@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MovieApi from './MovieApi';
-import SpotifyApi from './SpotifyApi';
+import SelectedMovie from './SelectedMovie'
+import {
+  BrowserRouter as Router,
+  Route, Link
+} from 'react-router-dom';
+import MovieResults from './MovieResults';
 
 class App extends React.Component {
     render() {
       return (
-        <div>
-          <SpotifyApi />
-          <MovieApi />
-        </div>
+        <Router>
+          <div>
+            {/* <SpotifyApi />
+            <NavBar /> */}
+            {/* <MovieResults /> */}
+            <Route path="/" exact component={MovieResults} /> 
+            <Route path="/movie/:id" exact component={SelectedMovie} />
+          </div>
+        </Router>
       )
     }
 }
