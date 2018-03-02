@@ -46,12 +46,16 @@ class NavBar extends React.Component {
         return (
         
             <div className="movieSelections">
+                <header>
+                    <a href='https://spotify-movie-soundtracks.herokuapp.com/auth'>Login with Spotify</a>
+
+                </header>
                 {this.state.genre.map((item) => {
                     console.log(item);
                     return (
                         <button onClick={() => this.props.showMovieByGenre(item.id)} key={item.id}>{item.name}</button>
                     )
-                })};
+                })}
             </div>
            
         )

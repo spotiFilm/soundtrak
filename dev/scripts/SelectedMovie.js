@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import tokens from './tokens';
 
 const apiURL = 'https://api.themoviedb.org/3'
 const apiKey = 'ba4403ee3098a16bd3c83fc121edf709'
@@ -15,6 +16,25 @@ class SelectedMovie extends React.Component {
         };
     }
     componentDidMount() {
+        //In order to use spotify effectively 
+        //Call the .getToken method, and then take the returned token and make your request.
+        tokens.getToken()
+            .then((token) => {
+                console.log(token);
+                axios({
+                    url: 'https://api.spotify.com/v1/search',
+                    params: {
+                        q: 'album:avengers soundtrack',
+                        type: 'album'
+                    },
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then((res) => {
+                    console.log(res.data);
+                })
+            });
         axios.get(`${apiURL}/movie/${this.props.match.params.id}`, {
             params: {
                 api_key: 'ba4403ee3098a16bd3c83fc121edf709',
