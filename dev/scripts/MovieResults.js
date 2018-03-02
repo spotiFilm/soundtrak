@@ -14,6 +14,7 @@ class MovieResults extends React.Component{
             title: "",
             movies: [],
         };
+        this.showMovieByGenre = this.showMovieByGenre.bind(this);
     }
 
 
@@ -25,11 +26,24 @@ class MovieResults extends React.Component{
             }
         })
         .then(({ data }) => {
-            console.log(data.results);
             this.setState({
                 movies: data.results
             });
         });
+    }
+
+    showMovieByGenre(genre) {
+        console.log(genre); 
+        axios.get(`${apiURL}/genre/${genre}/movies`, {
+            params: {
+                api_key: 'ba4403ee3098a16bd3c83fc121edf709',
+            }
+        })
+            .then(({ data }) => {
+                this.setState({
+                    movies: data.results
+                });
+            });
     }
 
     render() {
@@ -37,7 +51,7 @@ class MovieResults extends React.Component{
         
         return(
             <div>
-                <NavBar />
+                <NavBar showMovieByGenre={this.showMovieByGenre}/>
                 <SpotifyApi />
                 {this.state.movies.map((movie) => {
                 return (

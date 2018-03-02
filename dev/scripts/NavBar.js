@@ -5,27 +5,28 @@ import MovieResults from './MovieResults'
 const apiURL = 'https://api.themoviedb.org/3'
 const apiKey = 'ba4403ee3098a16bd3c83fc121edf709'
 
+// let submitGenre = (x) => {
+//     this.setState({
+//         userGenreSelection: x
+//     })
+// };
+
 class NavBar extends React.Component {
     constructor() {
         super();
         this.state = {
             movies: [],
             genre: [],
+            userGenreSelection: ""
         };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this)
+        this.submitGenre = this.submitGenre.bind(this);
     }
 
-    // handleChange(e) {
-    //     this.setState({
-    //         [e.target.id]: e.target.value
-    //     })
-    // }
-
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     this.findGenre();
-    // }
+    submitGenre (x) {
+        this.setState({
+            userGenreSelection: x
+        })
+    }
 
     componentDidMount() {
         axios.get(`${apiURL}/genre/movie/list`, {
@@ -43,23 +44,20 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.getMovie}>     
-                    <button type="submit" onChange={this.handleChange} onClick={this.handleSubmit} id="horror">horror</button>
-                    <button type="submit" onChange={this.handleChange} onClick={this.handleSubmit} id="comedy" >comedy</button>
-                </form>
-
-                <div className="movieSelections">
-                    {this.state.genre.map((item) => {
-                        return (
-                            <button key={item.id}>{item.name}</button>
-                        )
-                    })};
-                </div>
+        
+            <div className="movieSelections">
+                {this.state.genre.map((item) => {
+                    console.log(item);
+                    return (
+                        <button onClick={() => this.props.showMovieByGenre(item.id)} key={item.id}>{item.name}</button>
+                    )
+                })};
             </div>
+           
         )
     }
 
 }
+
 
 export default NavBar;

@@ -8,6 +8,9 @@ import {
 import MovieResults from './MovieResults';
 
 class App extends React.Component {
+    componentDidMount() {
+      
+    }
     render() {
       return (
         <Router>
