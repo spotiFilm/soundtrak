@@ -52,7 +52,6 @@ class MovieResults extends React.Component{
         return(
             <div>
                 <NavBar showMovieByGenre={this.showMovieByGenre}/>
-                <SpotifyApi />
                 {this.state.movies.map((movie) => {
                 return (
                     <div key={movie.id}>

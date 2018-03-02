@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 // spotifyURL including our client id# and a redirect back to our website (temporarily localhost:3000 while developing)
-const spotifyURL = 'https://accounts.spotify.com/authorize?client_id=1092c334be0f43b28f75a47dbfe15738&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A3000&scope=user-read-private,user-read-recently-played'
+const spotifyURL = 'https://spotify-movie-soundtracks.herokuapp.com/auth'
 
 
 class SpotifyApi extends React.Component{
     constructor(){
         super();
+        
         this.state = {
             token: location.hash.length > 0 ? location.hash.match(/access_token=([\w\d-.]+)/)[1] : '',
             song: []
