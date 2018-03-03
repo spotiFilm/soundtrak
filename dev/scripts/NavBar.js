@@ -5,11 +5,6 @@ import MovieResults from './MovieResults'
 const apiURL = 'https://api.themoviedb.org/3'
 const apiKey = 'ba4403ee3098a16bd3c83fc121edf709'
 
-// let submitGenre = (x) => {
-//     this.setState({
-//         userGenreSelection: x
-//     })
-// };
 
 class NavBar extends React.Component {
     constructor() {
@@ -17,7 +12,8 @@ class NavBar extends React.Component {
         this.state = {
             movies: [],
             genre: [],
-            userGenreSelection: ""
+            userGenreSelection: "",
+            signedIn: false
         };
         this.submitGenre = this.submitGenre.bind(this);
     }
@@ -46,16 +42,18 @@ class NavBar extends React.Component {
         return (
         
             <div className="movieSelections">
+                
                 <header>
                     <a href='https://spotify-movie-soundtracks.herokuapp.com/auth'>Login with Spotify</a>
-
                 </header>
+
                 {this.state.genre.map((item) => {
-                    console.log(item);
+                    // console.log(item);
                     return (
                         <button onClick={() => this.props.showMovieByGenre(item.id)} key={item.id}>{item.name}</button>
                     )
                 })}
+
             </div>
            
         )
