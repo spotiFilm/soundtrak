@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import tokens from './tokens';
+import { Link } from 'react-router-dom';
 
 const apiURL = 'https://api.themoviedb.org/3'
 const apiKey = 'ba4403ee3098a16bd3c83fc121edf709'
@@ -16,6 +17,7 @@ class SelectedMovie extends React.Component {
             resultsId: '',
             albums: []
         };
+        this.playlistSearch = this.playlistSearch.bind(this);
     }
     componentDidMount() {
         //In order to use spotify effectively 
@@ -27,9 +29,9 @@ class SelectedMovie extends React.Component {
                 axios({
                     url: 'https://api.spotify.com/v1/search',
                     params: {
+                        ////// change this to album///////
                         q: `soundtrack:${this.state.title}`,
-                        type: 'album',
-                        album_type: 'album'
+                        type: 'album'
                     },
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -44,10 +46,9 @@ class SelectedMovie extends React.Component {
             })
 
 
-
         axios.get(`${apiURL}/movie/${this.props.match.params.id}`, {
             params: {
-                api_key: 'ba4403ee3098a16bd3c83fc121edf709',
+                api_key: 'ba4403ee3098a16bd3c83fc121edf709'
             }
         })
             .then(({ data }) => {
@@ -61,6 +62,28 @@ class SelectedMovie extends React.Component {
             });
     }
 
+    playlistSearch() {
+        tokens.getToken()
+            .then((token) => {
+                console.log(token);
+                axios({
+                    url: 'https://api.spotify.com/v1/search',
+                    params: {
+                        q: `kingsman`,
+                        type: 'playlist'
+                    },
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(({data}) => {
+                    console.log(data);
+                    this.setState({
+                        // albums: data.albums.items
+                    });
+                })
+            })
+    }
 
     render() {
         let filteredResults = this.state.albums.filter((album) => {
@@ -81,9 +104,8 @@ class SelectedMovie extends React.Component {
                         )
                     })}
                 </div>) 
-            } else{ markup = <button>Find playlist</button>
-            }
-
+            } else{ markup = <button onClick={this.playlistSearch} >Find playlist</button>}
+        
         return(
             <div>
                 <div>

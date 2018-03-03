@@ -21,7 +21,7 @@ class App extends React.Component {
         <Router>
           <div>
             <Route path="/" exact component={MovieResults} /> 
-            <Route path="/playlist/:id" exact component={SelectedMovie} />
+            <Route path="/soundtrack/:id" exact component={SelectedMovie} />
           </div>
         </Router>
       )
