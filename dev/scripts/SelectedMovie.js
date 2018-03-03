@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import tokens from './tokens';
 import { Link } from 'react-router-dom';
+import SpotifyWidget from './SpotifyWidget';
 
 const apiURL = 'https://api.themoviedb.org/3'
 const apiKey = 'ba4403ee3098a16bd3c83fc121edf709'
@@ -30,7 +31,7 @@ class SelectedMovie extends React.Component {
                     url: 'https://api.spotify.com/v1/search',
                     params: {
                         ////// change this to album///////
-                        q: `soundtrack:${this.state.title}`,
+                        q: `album:${this.state.title}`,
                         type: 'album'
                     },
                     headers: {
@@ -62,6 +63,7 @@ class SelectedMovie extends React.Component {
             });
     }
 
+    //ASK RYAN -how do we make the query search using a more general search string?
     playlistSearch() {
         tokens.getToken()
             .then((token) => {
@@ -69,6 +71,8 @@ class SelectedMovie extends React.Component {
                 axios({
                     url: 'https://api.spotify.com/v1/search',
                     params: {
+                        //this is hardcoded temporarily because {this.state.title} is 
+                        //to specific and returns 0 results (: is included in title)
                         q: `kingsman`,
                         type: 'playlist'
                     },
@@ -85,6 +89,7 @@ class SelectedMovie extends React.Component {
             })
     }
 
+
     render() {
         let filteredResults = this.state.albums.filter((album) => {
             return album.album_type === 'album';
@@ -99,7 +104,11 @@ class SelectedMovie extends React.Component {
                         return (
                             <div key={album.id}>
                                 <p>{album.name}</p>
-                                <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} />
+                                {/* <Link to={`/soundtrack/${movie.id}`}> */}
+                                
+                                <Link to={`/player/${album.id}`}>
+                                    <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} />
+                                </Link>
                             </div>
                         )
                     })}
@@ -109,6 +118,7 @@ class SelectedMovie extends React.Component {
         return(
             <div>
                 <div>
+                    <h1>SelectedMovie</h1>
                     <h2>Soundtracks for {this.state.title}</h2>
                     {/* <h3>{this.state.tagline}</h3> */}
                     {/* <p>{this.state.overview}</p> */}

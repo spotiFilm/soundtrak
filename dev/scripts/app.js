@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import MovieResults from './MovieResults';
 import tokens from './tokens';
+import SpotifyWidget from './SpotifyWidget';
 
 class App extends React.Component {
     componentDidMount() {
@@ -16,12 +17,15 @@ class App extends React.Component {
 
       console.log(tokens);
     }
+
     render() {
       return (
         <Router>
           <div>
+            <h1>App</h1>
             <Route path="/" exact component={MovieResults} /> 
             <Route path="/soundtrack/:id" exact component={SelectedMovie} />
+            <Route path="/player/:id" exact component={SpotifyWidget} />
           </div>
         </Router>
       )

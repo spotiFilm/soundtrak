@@ -53,6 +53,7 @@ class MovieResults extends React.Component{
     render() {
         return(
             <div>
+                <h1>MovieResults</h1>
                 <NavBar showMovieByGenre={this.showMovieByGenre}/>
                 {this.state.movies.map((movie) => {
                 return (
@@ -64,10 +65,6 @@ class MovieResults extends React.Component{
                     </div> 
                     
                     <div>
-                        {/* <Link to={`/soundtrack/${movie.id}`}>
-                            <button>Find soundtrack</button>
-                        </Link> */}
-
                         <Link to={`/soundtrack/${movie.id}`}>
                             <button>Find Soundtrack</button>
                         </Link>
