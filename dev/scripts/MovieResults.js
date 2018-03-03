@@ -35,6 +35,7 @@ class MovieResults extends React.Component{
         });
     }
 
+
     showMovieByGenre(genre) {
         console.log(genre); 
         axios.get(`${apiURL}/genre/${genre}/movies`, {
@@ -50,11 +51,9 @@ class MovieResults extends React.Component{
     }
 
     render() {
-        //         return <MovieResults movie={movie} key={movie.id} />
-        
         return(
             <div>
-                
+                <h1>MovieResults</h1>
                 <NavBar showMovieByGenre={this.showMovieByGenre}/>
                 {this.state.movies.map((movie) => {
                 return (
@@ -67,22 +66,14 @@ class MovieResults extends React.Component{
                     
                     <div>
                         <Link to={`/soundtrack/${movie.id}`}>
-                            <button>Find soundtrack</button>
-                        </Link>
-
-                        <Link to={`/playlist/${movie.id}`}>
-                            <button>Find playlist</button>
+                            <button>Find Soundtrack</button>
                         </Link>
                     </div>
                 </div>  
-
-                )
-            })}     
+                )})}     
             </div>
         )
-            
     } 
-    
 }
 
 
