@@ -1,0 +1,50 @@
+.logo{
+  height: 160px;
+  display:flex;
+  align-items: center;
+}
+
+.line{
+  width:18px;
+  border-radius: 4px;
+  margin-right:12px;
+  animation: pulse 2s ease-in-out infinite   
+}
+
+.smallLeft{
+  height: 44px;
+  background-color: #78C8D5;
+  animation-delay: 1s;
+}
+
+.mediumLeft{
+  height: 93px;
+  background-color: #78C8D9;
+  animation-delay: 1.5s;
+}
+
+.middle{
+  height: 150px;
+  background-color:#78C8D9;
+}
+
+.mediumRight{
+  height: 61px;
+  background-color: #FF4738;
+  animation-delay: 2s;
+}
+
+.smallRight{
+  height: 33px;
+  background-color: #60948B;
+  animation-delay: 2.5s;
+}
+
+@keyframes pulse {
+  50%{
+    transform: scaleY(.7);
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}

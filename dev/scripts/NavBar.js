@@ -42,7 +42,14 @@ class NavBar extends React.Component {
         return (
         
             <div className="movieSelections">
-                
+                <div className="logo" >
+                    <div className="line smallLeft"></div>
+                    <div className="line mediumLeft"></div>
+                    <div className="line middle"></div>
+                    <div className="line mediumRight"></div>
+                    <div className="line smallRight"></div>
+                </div>
+                  
                 <header>
                     <a href='https://spotify-movie-soundtracks.herokuapp.com/auth'>Login with Spotify</a>
                 </header>

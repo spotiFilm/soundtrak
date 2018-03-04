@@ -1,4 +1,23 @@
 @import "normalize";
-@import "login";
+
+$white: #FFFFFF;
+$grey: #F2F2F2;
+$lightblue: #78C8D9;
+$red: #FF4738;
+$darkblue: #44616D;
+$teal: #60948B;
+
+a{
+    color: 
+    text-decoration: none;
+}
+
+
+body{
+    font-family: oswald;
+}
+
+@import "logIn";
+@import "header";
 @import "movies";
 @import "media";
