@@ -1,0 +1,46 @@
+.wrapper{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.singleMovie{
+    width: 25%;
+    float: left;
+    padding: 20px;
+
+}
+
+.movieDetails{
+    height: 75px;
+    border-top: 2px solid black;
+    margin-top: 15px;
+}
+
+.singleMovie img{
+    width: 100%;
+}
+
+.singleMovie h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.musicBtn button{
+    width: 100%;
+    border-style: none;
+    padding: 5px;
+    background:white;
+    border-bottom: 1px solid black;
+}
+
+.soundsIcon{
+    width: 20px;
+    float: right;
+    margin-top: 12px;
+}
+
+.musicBtn p{
+    color: #4b616b;
+    text-align: left;
+}
+
