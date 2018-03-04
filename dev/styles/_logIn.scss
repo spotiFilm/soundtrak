@@ -1,43 +1,58 @@
+.loginPage{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient($grey, $white);
+  position: relative;
+    .logoContainer{
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .logo{
   height: 160px;
-  display:flex;
-  align-items: center;
-}
+  margin: 0 auto;
+  float: left;
+  
+    .line{
+    width:18px;
+    border-radius: 4px;
+    margin-right:12px;
+    animation: pulse 2s ease-in-out infinite;
+    float: left;   
+  }
 
-.line{
-  width:18px;
-  border-radius: 4px;
-  margin-right:12px;
-  animation: pulse 2s ease-in-out infinite   
-}
+  .smallLeft{
+    height: 44px;
+    background-color: #78C8D5;
+    animation-delay: 1s;
+  }
 
-.smallLeft{
-  height: 44px;
-  background-color: #78C8D5;
-  animation-delay: 1s;
-}
+  .mediumLeft{
+    height: 93px;
+    background-color: #78C8D9;
+    animation-delay: 1.5s;
+  }
 
-.mediumLeft{
-  height: 93px;
-  background-color: #78C8D9;
-  animation-delay: 1.5s;
-}
+  .middle{
+    height: 150px;
+    background-color:#78C8D9;
+  }
 
-.middle{
-  height: 150px;
-  background-color:#78C8D9;
-}
+  .mediumRight{
+    height: 61px;
+    background-color: #FF4738;
+    animation-delay: 2s;
+  }
 
-.mediumRight{
-  height: 61px;
-  background-color: #FF4738;
-  animation-delay: 2s;
-}
-
-.smallRight{
-  height: 33px;
-  background-color: #60948B;
-  animation-delay: 2.5s;
+  .smallRight{
+    height: 33px;
+    background-color: #60948B;
+    animation-delay: 2.5s;
+  }
 }
 
 @keyframes pulse {
@@ -47,4 +62,35 @@
   100%{
     transform: scaleY(1);
   }
+}
+
+
+h1{
+  font-style: $bold;
+  font-size: 96px;
+  color:$teal;
+  float:left;
+}
+
+
+.buttonContainer{
+  display: block;
+  position: absolute;
+  top: 63%;  
+  left: 50%;
+  transform: translate(-50%, -63%);
+}
+
+.logInButton{
+  color: $white;
+  font-weight: $light;
+  font-size: 20px;
+  border: 1px solid $lightblue;
+  border-radius: 50px;
+  width: 426px;
+  min-height: 100px;
+  padding: 10px 22px;
+  background-color: $lightblue;
+  clear: both;
+  margin: 0 auto;
 }

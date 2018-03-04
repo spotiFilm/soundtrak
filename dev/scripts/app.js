@@ -22,7 +22,6 @@ class App extends React.Component {
       return (
         <Router>
           <div>
-            <h1>App</h1>
             <Route path="/" exact component={MovieResults} /> 
             <Route path="/soundtrack/:id" exact component={SelectedMovie} />
             <Route path="/player/:id" exact component={SpotifyWidget} />
