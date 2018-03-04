@@ -53,7 +53,6 @@ class MovieResults extends React.Component{
     render() {
         return(
             <div>
-                <h1>MovieResults</h1>
                 <NavBar showMovieByGenre={this.showMovieByGenre}/>
                 {this.state.movies.map((movie) => {
                 return (

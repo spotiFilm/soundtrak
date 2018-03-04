@@ -42,17 +42,24 @@ class NavBar extends React.Component {
         return (
         
             <div className="movieSelections">
-                <div className="logo" >
-                    <div className="line smallLeft"></div>
-                    <div className="line mediumLeft"></div>
-                    <div className="line middle"></div>
-                    <div className="line mediumRight"></div>
-                    <div className="line smallRight"></div>
+                <div className="loginPage">
+                    
+                    <div className="logoContainer clearfix">
+                        <div className="logo clearfix" >
+                            <div className="line smallLeft"></div>
+                            <div className="line mediumLeft"></div>
+                            <div className="line middle"></div>
+                            <div className="line mediumRight"></div>
+                            <div className="line smallRight"></div>
+                        </div>
+                        <h1>Soundtrak</h1>
+                    </div>
+
+                    <div className="buttonContainer">
+                        <a className="logInButton" href='https://spotify-movie-soundtracks.herokuapp.com/auth'>Login with Spotify</a>
+                    </div>
+               
                 </div>
-                  
-                <header>
-                    <a href='https://spotify-movie-soundtracks.herokuapp.com/auth'>Login with Spotify</a>
-                </header>
 
                 {this.state.genre.map((item) => {
                     // console.log(item);
