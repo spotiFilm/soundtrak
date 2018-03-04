@@ -59,7 +59,9 @@ class MovieResults extends React.Component{
                     <div className="wrapper">
                         <div className="singleMovie" key={movie.id}>
                             <div>
-                                <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
+                                <div className="poster">
+                                    <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
+                                </div>
                                 <div className="movieDetails">
                                     <h2>{movie.title}</h2>
                                 </div>

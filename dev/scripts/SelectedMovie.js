@@ -118,7 +118,7 @@ class SelectedMovie extends React.Component {
         return(
             <div>
                 <div>
-                    <h1>SelectedMovie</h1>
+                    <h2>SelectedMovie</h2>
                     <h2>Soundtracks for {this.state.title}</h2>
                     {/* <h3>{this.state.tagline}</h3> */}
                     {/* <p>{this.state.overview}</p> */}

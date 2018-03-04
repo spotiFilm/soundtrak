@@ -11,13 +11,14 @@
 }
 
 .movieDetails{
-    height: 75px;
+    min-height: 95px;
     border-top: 2px solid black;
     margin-top: 15px;
 }
 
-.singleMovie img{
+.poster img{
     width: 100%;
+    min-height: 375px;
 }
 
 .singleMovie h2{
@@ -37,6 +38,10 @@
     width: 20px;
     float: right;
     margin-top: 12px;
+}
+
+.soundsIcon img{
+    width: 100%;
 }
 
 .musicBtn p{
