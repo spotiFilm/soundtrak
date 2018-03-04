@@ -53,23 +53,34 @@ class MovieResults extends React.Component{
     render() {
         return(
             <div>
-                <NavBar showMovieByGenre={this.showMovieByGenre}/>
-                {this.state.movies.map((movie) => {
-                return (
-                
-                <div key={movie.id}>
-                    <div>
-                        <h2>{movie.title}</h2>
-                        <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt="" />
-                    </div> 
+
+                <div className="wrapper">
+                    <h1>MovieResults</h1>
+                    <NavBar showMovieByGenre={this.showMovieByGenre}/>
+                    {this.state.movies.map((movie) => {
+                    return (
+
                     
-                    <div>
-                        <Link to={`/soundtrack/${movie.id}`}>
-                            <button>Find Soundtrack</button>
-                        </Link>
-                    </div>
-                </div>  
-                )})}     
+                    <div className="singleMovie" key={movie.id}>
+                        <div>
+                            <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
+                            <div className="movieDetails">
+                                <h2>{movie.title}</h2>
+                            </div>
+                            <div className="musicBtn">
+                                <Link to={`/soundtrack/${movie.id}`}>
+                                    <button>
+                                        <div className="soundsIcon">
+                                            <img src="/public/assets/soundbar2.png" alt=""/>
+                                        </div>
+                                        <p>Find Soundtrack</p>
+                                    </button>
+                                </Link>
+                            </div>
+                        </div> 
+                    </div>  
+                    )})}    
+                </div> 
             </div>
         )
     } 
