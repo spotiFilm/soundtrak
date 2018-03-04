@@ -9,7 +9,6 @@ class SpotifyWidget extends React.Component{
     render() {
         return(
             <div>
-                <h1>Hello this is our widget</h1>
                 <iframe 
                     src={`https://open.spotify.com/embed?uri=spotify:album:${this.props.match.params.id}`}
                     frameBorder="0" 
