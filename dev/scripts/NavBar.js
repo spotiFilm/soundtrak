@@ -31,7 +31,7 @@ class NavBar extends React.Component {
             }
         })
             .then(({ data }) => {
-                console.log(data.genres);
+                // console.log(data.genres);
                 this.setState({
                     genre: data.genres
                 });
@@ -63,7 +63,7 @@ class NavBar extends React.Component {
 
                 <nav className="fixedHeader">
                     <div className="wrapper clearfix">
-                        <i class="fas fa-bars"></i>
+                        <i className="fas fa-bars"></i>
                         <div className="navLogo clearfix">
                             <img src="../../public/assets/soundbar2.png" alt=""/>
                             <p>Soundtrak</p>
