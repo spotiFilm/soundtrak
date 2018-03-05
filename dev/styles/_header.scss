@@ -1,0 +1,81 @@
+.genreDropDown{
+    background: #60948B;
+    padding: 40px;
+    position: relative;
+}
+
+
+.genreList{
+    background: #60948B;
+    width: 25%;
+    float: left;
+    padding: 8px;
+    button{
+        width: 100%;
+        min-height: 20px;
+        font-weight: 300;
+        font-size: 20px;
+        float: left;
+        border: none;
+        background-color: #60948B;
+        text-align: left;
+        padding: 8px 40px;
+        color: white;
+         &:hover, 
+         &:active{
+            color: $white;
+            background: lighten( $teal, 10% )
+        }
+    }
+    
+}
+
+
+.dropDownTriangle{
+    border-bottom:20px solid $teal;
+    border-top:20px solid transparent;
+    border-right:20px solid transparent;
+    border-left:20px solid transparent;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 46px;
+    top: -40px;
+}
+
+
+.fixedHeader{
+    background: linear-gradient(45deg,#44616D 0%,#609488 100%);
+    .wrapper{
+        svg{
+            float: left;
+            color: $white;
+            margin: 20px 53px;
+            font-size:25px
+        }
+        .navLogo{
+            float: right;
+            color: $white;
+            margin-right: 40px;
+        }
+    }
+}
+
+.navLogo{
+    font-size: 20px;
+    img{
+        float: left;
+        width: 55px;
+        margin: 14px;
+    }
+    p{
+        float: left;
+        letter-spacing: 3.4px;
+        font-size: 30px;
+        margin: 10px;
+    }
+
+}
+
+
+    
