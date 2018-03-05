@@ -61,12 +61,27 @@ class NavBar extends React.Component {
                
                 </div>
 
-                {this.state.genre.map((item) => {
-                    // console.log(item);
-                    return (
-                        <button onClick={() => this.props.showMovieByGenre(item.id)} key={item.id}>{item.name}</button>
-                    )
-                })}
+                <nav className="fixedHeader">
+                    <div className="wrapper clearfix">
+                        <i class="fas fa-bars"></i>
+                        <div className="navLogo clearfix">
+                            <img src="../../public/assets/soundbar2.png" alt=""/>
+                            <p>Soundtrak</p>
+                        </div>
+                    </div>
+                </nav>
+
+                <div className="wrapper genreDropDown clearfix">
+                <div className="dropDownTriangle"></div>
+                    {this.state.genre.map((item) => {
+                        // console.log(item);
+                        return (
+                            <div className="genreList">
+                                <button onClick={() => this.props.showMovieByGenre(item.id)} key={item.id}>{item.name}</button>
+                            </div>
+                        )
+                    })}
+                </div>
 
             </div>
            
