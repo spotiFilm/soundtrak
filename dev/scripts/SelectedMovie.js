@@ -16,9 +16,11 @@ class SelectedMovie extends React.Component {
             poster_path: '',
             tagline: '',
             resultsId: '',
-            albums: []
+            albums: [],
+            playlists: []
         };
         this.playlistSearch = this.playlistSearch.bind(this);
+        this.playlistRender = this.playlistRender.bind(this);
     }
     componentDidMount() {
         //In order to use spotify effectively 
@@ -26,12 +28,12 @@ class SelectedMovie extends React.Component {
         //returned token and make your request.
         tokens.getToken()
             .then((token) => {
-                console.log(token);
+                // console.log(token);
                 axios({
                     url: 'https://api.spotify.com/v1/search',
                     params: {
                         ////// change this to album///////
-                        q: `album:${this.state.title}`,
+                        q: `soundtrack:${this.state.title}`,
                         type: 'album'
                     },
                     headers: {
@@ -39,7 +41,7 @@ class SelectedMovie extends React.Component {
                     }
                 })
                 .then(({data}) => {
-                    console.log(data.albums.items);
+                    // console.log(data.albums.items);
                     this.setState({
                         albums: data.albums.items
                     });
@@ -53,7 +55,7 @@ class SelectedMovie extends React.Component {
             }
         })
             .then(({ data }) => {
-                console.log(data);
+                // console.log(data);
                 this.setState({
                     overview: data.overview,
                     tagline: data.tagline,
@@ -73,7 +75,7 @@ class SelectedMovie extends React.Component {
                     params: {
                         //this is hardcoded temporarily because {this.state.title} is 
                         //to specific and returns 0 results (: is included in title)
-                        q: `kingsman`,
+                        q: `${this.state.title.replace(/[:]/ig,'')}`,
                         type: 'playlist'
                     },
                     headers: {
@@ -81,12 +83,49 @@ class SelectedMovie extends React.Component {
                     }
                 })
                 .then(({data}) => {
-                    console.log(data);
-                    this.setState({
-                        // albums: data.albums.items
-                    });
+                    console.log(data.playlists.items);
+                    this.setState(
+                        {
+                        playlists: data.playlists.items
+                        }, 
+                        () => { this.playlistRender()
+                        }); 
                 })
             })
+        // playlistRender();
+    }
+
+
+    playlistRender() {
+        
+        let playlistResults = this.state.playlists;
+        
+
+
+        if (playlistResults.length > 0) {
+            return (
+                <div>
+                    {playlistResults.map((playlist) => {
+                        console.log(playlist.id);
+                        return (
+                            <div className="singleAlbum" key={playlist.id}>
+                                <div className="filmInfo_content">
+                                    <p>{playlist.name}</p>
+                                </div>
+                                    <img src={`${playlist.images[0].url}`} alt=""/>
+                                <iframe
+                                    src={`https://open.spotify.com/embed?uri=spotify:playlists:${playlist.id}`}
+                                    frameBorder="0"
+                                    allow="encrypted-media"
+                                    allowtransparency="true">
+                                </iframe>
+                            
+                            </div>
+                        )
+                    })}
+                </div>
+            )
+        } else { playlistResults = <p>No gurl, noooooooo</p> }
     }
 
 
@@ -96,9 +135,9 @@ class SelectedMovie extends React.Component {
         })
         console.log(filteredResults);
 
-        let markup = null
+        let soundtrackResults = null
             if (filteredResults.length > 0){
-                markup = 
+                soundtrackResults = 
                 (<div className="albumResults">
                     {filteredResults.map((album) => {
                         return (
@@ -111,12 +150,22 @@ class SelectedMovie extends React.Component {
                                 <Link to={`/player/${album.id}`}>
                                     <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} />
                                 </Link>
+                                <iframe
+                                    src={`https://open.spotify.com/embed?uri=spotify:album:${album.id}`}
+                                    frameBorder="0"
+                                    allow="encrypted-media"
+                                    allowtransparency="true">
+                                </iframe>
                             </div>
                         )
                     })}
                 </div>) 
-            } else{ markup = <button onClick={this.playlistSearch} >Find playlist</button>}
+            } else{ soundtrackResults = <button onClick={this.playlistSearch} >Find playlist</button>}
         
+        
+        const playlistRender = ( 
+            <h2>hello</h2>
+        )
         return(
             <div>
                 <div className="wrapper">
@@ -128,7 +177,10 @@ class SelectedMovie extends React.Component {
                             <img src={`https://image.tmdb.org/t/p/w300/${this.state.poster_path}`} alt={`poster for ${this.state.title}`}/>
                         </div>
                     </div>
-                    {markup}
+                    {soundtrackResults}
+                    {this.state.playlists > 0 ? playlistRender : null}
+                    {this.playlistRender()}
+
                 </div>
             </div>
         )

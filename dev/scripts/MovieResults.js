@@ -28,7 +28,7 @@ class MovieResults extends React.Component{
             }
         })
         .then(({ data }) => {
-            console.log(data);
+            // console.log(data);
             this.setState({
                 movies: data.results
             });
@@ -54,7 +54,7 @@ class MovieResults extends React.Component{
         return(
             <div>   
                 <NavBar showMovieByGenre={this.showMovieByGenre}/>
-                <h2>{this.showMovieByGenre}</h2>
+                <h2>Heading</h2>
                 {this.state.movies.map((movie) => {
                     return (
                     <div className="wrapper">
