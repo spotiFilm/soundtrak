@@ -99,11 +99,13 @@ class SelectedMovie extends React.Component {
         let markup = null
             if (filteredResults.length > 0){
                 markup = 
-                (<div>
+                (<div className="albumResults">
                     {filteredResults.map((album) => {
                         return (
-                            <div key={album.id}>
-                                <p>{album.name}</p>
+                            <div className="singleAlbum" key={album.id}>
+                                <div className="filmInfo_content">
+                                    <p>{album.name}</p>
+                                </div>
                                 {/* <Link to={`/soundtrack/${movie.id}`}> */}
                                 
                                 <Link to={`/player/${album.id}`}>
@@ -117,15 +119,17 @@ class SelectedMovie extends React.Component {
         
         return(
             <div>
-                <div>
-                    <h2>SelectedMovie</h2>
-                    <h2>Soundtracks for {this.state.title}</h2>
-                    {/* <h3>{this.state.tagline}</h3> */}
-                    {/* <p>{this.state.overview}</p> */}
-                    {/* <img src={`https://image.tmdb.org/t/p/w200/${this.state.poster_path}`} alt={`poster for ${this.state.title}`} /> */}
+                <div className="wrapper">
+                    <div className="filmInfo">
+                        <h2>Soundtracks for {this.state.title}</h2>
+                        <h3>{this.state.tagline}</h3>
+                        <p>{this.state.overview}</p>
+                        <div className="poster_container">
+                            <img src={`https://image.tmdb.org/t/p/w300/${this.state.poster_path}`} alt={`poster for ${this.state.title}`}/>
+                        </div>
+                    </div>
+                    {markup}
                 </div>
-
-                {markup}
             </div>
         )
     }
