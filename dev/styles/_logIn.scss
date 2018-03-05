@@ -6,7 +6,7 @@
     .logoContainer{
     min-width: 585px;
     position: absolute;
-    top: 50%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -84,7 +84,7 @@ h1{
 .buttonContainer{
   display: block;
   position: absolute;
-  top: 52vh;  
+  top: 56vh;  
   left: 50%;
   transform: translate(-50%, -63%);
 }
@@ -131,6 +131,12 @@ h1{
 
    .buttonContainer{
     top: 70vh;
+  }
+
+  .loginPage{
+    .logoContainer{
+      top: 50%;
+    }
   }
 
 }
