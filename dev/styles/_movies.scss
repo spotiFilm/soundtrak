@@ -1,3 +1,5 @@
+//MOVIES
+
 .movie-wrapper{
     width: 80%;
     margin: 0 auto;
@@ -7,6 +9,7 @@
     width: 25%;
     float: left;
     padding: 20px;
+    min-height: 590px;
 
 }
 
@@ -16,9 +19,14 @@
     margin-top: 15px;
 }
 
+.poster{
+    max-height: 368px;
+}
+
 .poster img{
     width: 100%;
-    min-height: 375px;
+    height: 100%;
+    // min-height: 375px;
 }
 
 .singleMovie h2{
@@ -45,7 +53,39 @@
 }
 
 .musicBtn p{
-    color: #4b616b;
+    color: #6c8b99a2;
     text-align: left;
 }
 
+//RESULTS
+
+.filmInfo{
+    width: 25%;
+    float: left;
+
+}
+
+.filmInfo img{
+    width: 100%;
+}
+
+.albumResults{
+    float: left;
+    width: 73%;
+    margin-left: 10px;
+    margin-top: 75px;
+}
+
+.singleAlbum{
+    float: left;
+    margin: 10px;
+    width: 30.5%;
+}
+
+.singleAlbum img{
+    width: 100%;
+}
+
+.filmInfo_content{
+    height: 50px;
+}
