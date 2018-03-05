@@ -1,0 +1,30 @@
+@import "normalize";
+
+$white: #FFFFFF;
+$grey: #E0E0E0;
+$lightblue: #78C8D9;
+$red: #FF4738;
+$darkblue: #44616D;
+$teal: #60948B;
+
+$bold: 700;
+$reg:400;
+$light:300;
+
+a{
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Oswald', sans-serif;
+}
+
+.wrapper{
+    width: 90%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+@import "logIn";
+@import "header";
+@import "movies";

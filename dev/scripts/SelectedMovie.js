@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import tokens from './tokens';
+import { Link } from 'react-router-dom';
+import SpotifyWidget from './SpotifyWidget';
 
 const apiURL = 'https://api.themoviedb.org/3'
 const apiKey = 'ba4403ee3098a16bd3c83fc121edf709'
@@ -16,6 +18,7 @@ class SelectedMovie extends React.Component {
             resultsId: '',
             albums: []
         };
+        this.playlistSearch = this.playlistSearch.bind(this);
     }
     componentDidMount() {
         //In order to use spotify effectively 
@@ -27,9 +30,9 @@ class SelectedMovie extends React.Component {
                 axios({
                     url: 'https://api.spotify.com/v1/search',
                     params: {
-                        q: `soundtrack:${this.state.title}`,
-                        type: 'album',
-                        album_type: 'album'
+                        ////// change this to album///////
+                        q: `album:${this.state.title}`,
+                        type: 'album'
                     },
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -44,10 +47,9 @@ class SelectedMovie extends React.Component {
             })
 
 
-
         axios.get(`${apiURL}/movie/${this.props.match.params.id}`, {
             params: {
-                api_key: 'ba4403ee3098a16bd3c83fc121edf709',
+                api_key: 'ba4403ee3098a16bd3c83fc121edf709'
             }
         })
             .then(({ data }) => {
@@ -59,6 +61,32 @@ class SelectedMovie extends React.Component {
                     poster_path: data.poster_path
                 });
             });
+    }
+
+    //ASK RYAN -how do we make the query search using a more general search string?
+    playlistSearch() {
+        tokens.getToken()
+            .then((token) => {
+                console.log(token);
+                axios({
+                    url: 'https://api.spotify.com/v1/search',
+                    params: {
+                        //this is hardcoded temporarily because {this.state.title} is 
+                        //to specific and returns 0 results (: is included in title)
+                        q: `kingsman`,
+                        type: 'playlist'
+                    },
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(({data}) => {
+                    console.log(data);
+                    this.setState({
+                        // albums: data.albums.items
+                    });
+                })
+            })
     }
 
 
@@ -76,17 +104,21 @@ class SelectedMovie extends React.Component {
                         return (
                             <div key={album.id}>
                                 <p>{album.name}</p>
-                                <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} />
+                                {/* <Link to={`/soundtrack/${movie.id}`}> */}
+                                
+                                <Link to={`/player/${album.id}`}>
+                                    <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} />
+                                </Link>
                             </div>
                         )
                     })}
                 </div>) 
-            } else{ markup = <button>Find playlist</button>
-            }
-
+            } else{ markup = <button onClick={this.playlistSearch} >Find playlist</button>}
+        
         return(
             <div>
                 <div>
+                    <h2>SelectedMovie</h2>
                     <h2>Soundtracks for {this.state.title}</h2>
                     {/* <h3>{this.state.tagline}</h3> */}
                     {/* <p>{this.state.overview}</p> */}

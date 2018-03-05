@@ -35,6 +35,7 @@ class MovieResults extends React.Component{
         });
     }
 
+
     showMovieByGenre(genre) {
         console.log(genre); 
         axios.get(`${apiURL}/genre/${genre}/movies`, {
@@ -50,39 +51,37 @@ class MovieResults extends React.Component{
     }
 
     render() {
-        //         return <MovieResults movie={movie} key={movie.id} />
-        
         return(
-            <div>
-                
+            <div>    
                 <NavBar showMovieByGenre={this.showMovieByGenre}/>
                 {this.state.movies.map((movie) => {
-                return (
-                
-                <div key={movie.id}>
-                    <div>
-                        <h2>{movie.title}</h2>
-                        <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt="" />
-                    </div> 
-                    
-                    <div>
-                        <Link to={`/soundtrack/${movie.id}`}>
-                            <button>Find soundtrack</button>
-                        </Link>
-
-                        <Link to={`/playlist/${movie.id}`}>
-                            <button>Find playlist</button>
-                        </Link>
+                    return (
+                    <div className="wrapper">
+                        <div className="singleMovie" key={movie.id}>
+                            <div>
+                                <div className="poster">
+                                    <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
+                                </div>
+                                <div className="movieDetails">
+                                    <h2>{movie.title}</h2>
+                                </div>
+                                <div className="musicBtn">
+                                    <Link to={`/soundtrack/${movie.id}`}>
+                                        <button>
+                                            <div className="soundsIcon">
+                                                <img src="/public/assets/soundbar2.png" alt=""/>
+                                            </div>
+                                            <p>Find Soundtrack</p>
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div> 
+                        </div>  
                     </div>
-                </div>  
-
-                )
-            })}     
-            </div>
+                )})}    
+            </div> 
         )
-            
     } 
-    
 }
 
 

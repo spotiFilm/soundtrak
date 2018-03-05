@@ -1,0 +1,154 @@
+.loginPage{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient($grey, $white);
+  position: relative;
+    .logoContainer{
+    min-width: 585px;
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.logo{
+  height: 160px;
+  margin: 11% 25px 50% 0;
+  float: left;
+  
+    .line{
+    width:15px;
+    border-radius: 4px;
+    animation: pulse 2s ease-in-out infinite;
+    float: left;   
+  }
+
+  .smallLeft{
+    height: 44px;
+    background-color: #78C8D5;
+    animation-delay: 1s;
+    margin-right:12px;
+    margin-top: 50%
+  }
+
+  .mediumLeft{
+    height: 93px;
+    background-color: #78C8D9;
+    animation-delay: 1.5s;
+    margin-right:12px;
+    margin-top: 31%;
+  }
+
+  .middle{
+    height: 150px;
+    background-color:#78C8D9;
+    margin-right:12px;
+    margin-top: 12%;
+  }
+
+  .mediumRight{
+    height: 61px;
+    background-color: #FF4738;
+    animation-delay: 2s;
+    margin-right:12px;
+    margin-top: 45%;
+  }
+
+  .smallRight{
+    height: 33px;
+    background-color: #60948B;
+    animation-delay: 2.5s;
+    margin-top: 53%;
+  }
+}
+
+@keyframes pulse {
+  50%{
+    transform: scaleY(.7);
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}
+
+
+h1{
+  font-weight: $bold;
+  font-size: 96px;
+  color:$teal;
+  float:left;
+}
+
+
+.buttonContainer{
+  display: block;
+  position: absolute;
+  top: 56vh;  
+  left: 50%;
+  transform: translate(-50%, -63%);
+}
+
+.logInButton{
+  color: $white;
+  font-weight: $light;
+  font-size: 20px;
+  border: 3px solid $lightblue;
+  border-radius: 50px;
+  width: 426px;
+  min-height: 100px;
+  padding: 10px 22px;
+  background-color: $lightblue;
+  clear: both;
+  margin: 0 auto;
+  transition: all 0.5s ease;
+  &:hover, 
+  &:active{
+    color:$lightblue;
+    background-color: transparent;
+  }
+}
+
+
+///MEDIA QUIERIES
+
+@media (max-width: 700px){
+  h1{
+    text-align: center;
+    font-size: 56px;
+    float: none;
+    margin-top: 10px;
+  }
+  .logo{
+    float:none;
+    width: 138px;
+    margin: 0 auto;
+  }
+ 
+  .logInButton{
+    font-size: 15px;
+  }
+
+   .buttonContainer{
+    top: 70vh;
+  }
+
+  .loginPage{
+    .logoContainer{
+      top: 50%;
+    }
+  }
+
+}
+
+@media (max-height: 660px){
+   .buttonContainer{
+    top: 80vh;
+  }
+}
+
+@media (max-width: 340px){
+  .logInButton{
+    font-size: 15px;
+  }
+}
