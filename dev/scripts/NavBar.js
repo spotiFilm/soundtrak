@@ -13,8 +13,7 @@ class NavBar extends React.Component {
             movies: [],
             genre: [],
             userGenreSelection: "",
-            signedIn: false,
-            token: location.hash.length > 0 ? location.hash.match(/access_token=([\w\d-.]+)/)[1] : '',
+            token: location.search.length > 0 ? location.search.match(/access_token=([\w\d-.]+)/)[1] : '',
         };
         this.submitGenre = this.submitGenre.bind(this);
         this.logOut = this.logOut.bind(this);
@@ -30,16 +29,11 @@ class NavBar extends React.Component {
     logOut() {
         console.log("loggging out");
         this.setState({
-            // token: location.hash='',
-            signedIn: false
-
+            token: ''
         })
     }
 
     showMenu() {
-        // e.preventDefault();
-        // this.burger.classList.add('show');
-        // console.log('show')
         let burgermenu = document.getElementById('genreDropDown')
         burgermenu.classList.toggle('show');
     }
@@ -61,7 +55,7 @@ class NavBar extends React.Component {
     render() {
         return (  
             <div className="movieSelections">
-                {/* {this.state.token !== '' ? */}
+                {this.state.token === '' ?
 
                     <div className="loginPage">
                         <div className="logoContainer clearfix">
@@ -80,7 +74,7 @@ class NavBar extends React.Component {
                         </div>
 
                     </div>
-                     {/* : */}
+                     :
                     <div>
                         <nav className="fixedHeader">
                             <div className="wrapper clearfix">
@@ -113,7 +107,7 @@ class NavBar extends React.Component {
                             })}
                         </div>
                     </div>                   
-                {/* } */}
+                 }
 
             </div>
            
