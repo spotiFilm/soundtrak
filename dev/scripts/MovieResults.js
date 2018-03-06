@@ -59,34 +59,14 @@ class MovieResults extends React.Component{
                     return (
                         <div className="wrapper" key={movie.id}>
                             <Link to={`/soundtrack/${movie.id}`}>
-                                <figure class="snip1321"><img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="sq-sample26" />
+                                <figure className="movie-details"><img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="sq-sample26" />
                                     <figcaption><img className="logo-sm" src="/public/assets/soundbar2.png" alt="" />
                                         <h4>{movie.title}</h4>
-                                        <h2>Search for Soundtrack</h2>
-                                    </figcaption><a href="#"></a>
+                                        <div className="btn">Find Soundtrack</div>
+                                    </figcaption>
                                 </figure>
                             </Link>
-                        {/* <div className="singleMovie">
-                            <div className="poster">
-                                <div className="overlay">
-                                    <p>overlay</p>
-                                </div>
-                                <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
-                            </div>
-                            <div className="movieDetails">
-                                <h2>{movie.title}</h2>
-                            </div>
-                            <div className="musicBtn">
-                                <Link to={`/soundtrack/${movie.id}`}>
-                                    <button>
-                                        <div className="soundsIcon">
-                                            <img src="/public/assets/soundbar2.png" alt=""/>
-                                        </div>
-                                        <p>Find Soundtrack</p>
-                                    </button>
-                                </Link>
-                            </div>                        
-                        </div>   */}
+                        
                     </div>
                 )})}    
             </div> 

@@ -111,7 +111,7 @@
 }
 
 //testing some css code here
-figure.snip1321 {
+figure.movie-details {
   font-family: 'Raleway', Arial, sans-serif;
   position: relative;
   float: left;
@@ -126,21 +126,21 @@ figure.snip1321 {
   perspective: 50em;
 }
 
-figure.snip1321 * {
+figure.movie-details * {
   -webkit-box-sizing: padding-box;
   box-sizing: padding-box;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-figure.snip1321 img {
+figure.movie-details img {
   max-width: 100%;
   vertical-align: top;
 }
-figure.snip1321 .logo-sm {
+figure.movie-details .logo-sm {
   width: 40%;
   vertical-align: top;
 }
-figure.snip1321 figcaption {
+figure.movie-details figcaption {
   top: 50%;
   left: 20px;
   right: 20px;
@@ -148,25 +148,25 @@ figure.snip1321 figcaption {
   opacity: 0;
   z-index: 1;
 }
-figure.snip1321 h2,
-figure.snip1321 h4 {
+figure.movie-details h2,
+figure.movie-details h4 {
   margin: 0;
 }
-figure.snip1321 h2 {
+figure.movie-details h2 {
   font-weight: 500;
   font-size: .9rem;
-  color: red;
+  color:black;
   
 }
-figure.snip1321 h4 {
+figure.movie-details h4 {
   font-weight: 400;
   text-transform: uppercase;
   padding: 10%;
 }
-figure.snip1321 i {
+figure.movie-details i {
   font-size: 32px;
 }
-figure.snip1321:after {
+figure.movie-details:after {
   background-color: #ffffff;
   position: absolute;
   content: "";
@@ -184,7 +184,7 @@ figure.snip1321:after {
   transform-origin: 50% 50%;
   opacity: 0;
 }
-figure.snip1321 a {
+figure.movie-details a {
   left: 0;
   right: 0;
   top: 0;
@@ -192,17 +192,31 @@ figure.snip1321 a {
   position: absolute;
   z-index: 1;
 }
-figure.snip1321:hover figcaption,
-figure.snip1321.hover figcaption {
+figure.movie-details:hover figcaption,
+figure.movie-details.hover figcaption {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   opacity: .8;
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s;
 }
-figure.snip1321:hover:after,
-figure.snip1321.hover:after {
+figure.movie-details:hover:after,
+figure.movie-details.hover:after {
   -webkit-transform: rotateX(0);
   transform: rotateX(0);
   opacity: 0.9;
+}
+
+.btn {
+  margin: 20px auto;
+  text-align: center;
+  transition: all ease .5s;
+  position: relative;
+  border: 2px solid $red;
+  width: 150px;
+  border-radius: 50px;
+  padding: 10px;
+  color: white;
+  font-size: .8rem;
+  background-color: $red;
 }
