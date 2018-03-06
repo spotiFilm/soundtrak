@@ -4,12 +4,19 @@
     width: 25%;
     float: left;
     position: fixed;
-    height: 100vh;
+    height: 120vh;
     padding: 20px;
+    max-width: 300px;
 }
 
 .filmInfo img{
     width: 100%;
+}
+
+.playlistBtn{
+    border-style: none;
+    margin-top: 100px;
+    float: right;
 }
 
 .albumResults{
@@ -20,9 +27,13 @@
 }
 
 .singleAlbum{
-    float: left;
-    margin: 10px;
-    width: 30.5%;
+    float: right;
+    margin: 20px;
+    width: 30%;
+}
+
+iframe{
+    border: 1px solid black;
 }
 
 .singleAlbum img{

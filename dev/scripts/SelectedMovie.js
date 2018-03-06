@@ -3,6 +3,7 @@ import axios from 'axios';
 import tokens from './tokens';
 import { Link } from 'react-router-dom';
 import SpotifyWidget from './SpotifyWidget';
+import NavBar from './NavBar';
 
 const apiURL = 'https://api.themoviedb.org/3'
 const apiKey = 'ba4403ee3098a16bd3c83fc121edf709'
@@ -161,7 +162,7 @@ class SelectedMovie extends React.Component {
                         )
                     })}
                 </div>) 
-            } else{ soundtrackResults = <button onClick={this.playlistSearch} >Find playlist</button>}
+            } else{ soundtrackResults = <button className="playlistBtn clearfix" onClick={this.playlistSearch} >Find playlist</button>}
         
         
         const playlistRender = ( 
@@ -169,6 +170,18 @@ class SelectedMovie extends React.Component {
         )
         return(
             <div>
+                <nav className="fixedHeader">
+                    <div className="wrapper clearfix">
+
+                        <Link to='/'>Go Back</Link>
+
+                        <div className="navLogo clearfix">
+                            <img src="../../public/assets/soundbar2.png" alt="" />
+                            <p>Soundtrak</p>
+                        </div>
+                    </div>
+                </nav>
+
                 <div className="wrapper">
                     <div className="filmInfo">
                         <h2>Soundtracks for {this.state.title}</h2>
