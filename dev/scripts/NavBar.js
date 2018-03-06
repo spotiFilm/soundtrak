@@ -35,10 +35,12 @@ class NavBar extends React.Component {
     }
 
     logOut() {
-        console.log("loggging out");
-        this.setState({
-            token: ''
-        })
+        // console.log("loggging out");
+        // tokens.refresh_token = '';
+        // this.setState({
+        //     token: ''
+        // })
+        location.reload();
     }
 
     showMenu() {
