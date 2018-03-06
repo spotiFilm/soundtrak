@@ -13,10 +13,15 @@
     width: 100%;
 }
 
+.btn-container{
+    width: 100%;
+}
+
 .playlistBtn{
     border-style: none;
-    margin-top: 100px;
     float: right;
+    clear: both;
+    margin-right: 57%;
 }
 
 .albumResults{
@@ -42,4 +47,8 @@ iframe{
 
 .filmInfo_content{
     height: 50px;
+}
+
+.description{
+    font-family: 'Raleway', Arial, sans-serif;
 }
