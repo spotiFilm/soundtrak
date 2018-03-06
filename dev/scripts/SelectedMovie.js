@@ -34,7 +34,7 @@ class SelectedMovie extends React.Component {
                     url: 'https://api.spotify.com/v1/search',
                     params: {
                         ////// change this to album///////
-                        q: `soundtrack:${this.state.title}`,
+                        q: `album:${this.state.title}`,
                         type: 'album'
                     },
                     headers: {
@@ -177,7 +177,7 @@ class SelectedMovie extends React.Component {
                 <nav className="fixedHeader">
                     <div className="wrapper clearfix">
 
-                        <Link to='/'>Go Back</Link>
+                        <Link to='/'><i className="fas fa-chevron-circle-left"></i></Link>
 
                         <div className="navLogo clearfix">
                             <img src="../../public/assets/soundbar2.png" alt="" />
