@@ -108,18 +108,20 @@ class SelectedMovie extends React.Component {
                 <div>
                     {playlistResults.map((playlist) => {
                         return (
-                            <div className="singleAlbum" key={playlist.id}>
-                                <div className="filmInfo_content">
-                                    <p>{playlist.name}</p>
+                            <div className="album_container">
+                                <div className="singleAlbum" key={playlist.id}>
+                                    <div className="filmInfo_content">
+                                        <p>{playlist.name}</p>
+                                    </div>
+                                        {/* <img src={`${playlist.images[0].url}`} alt=""/> */}
+                                    <iframe
+                                        src={`https://open.spotify.com/embed?uri=${playlist.uri}&theme=white`}
+                                        width="100%"
+                                        height="380"
+                                        frameBorder="0"
+                                        allowtransparency="true">
+                                    </iframe> 
                                 </div>
-                                    {/* <img src={`${playlist.images[0].url}`} alt=""/> */}
-                                <iframe
-                                    src={`https://open.spotify.com/embed?uri=${playlist.uri}&theme=white`}
-                                    width="100%"
-                                    height="380"
-                                    frameBorder="0"
-                                    allowtransparency="true">
-                                </iframe> 
                             </div>
                         )
                     })}
@@ -138,33 +140,36 @@ class SelectedMovie extends React.Component {
         let soundtrackResults = null
             if (filteredResults.length > 0){
                 soundtrackResults = 
-                (<div className="albumResults">
+                (
+                <div className="albumResults">
                     {filteredResults.map((album) => {
                         return (
-                            <div className="singleAlbum" key={album.id}>
-                                <div className="filmInfo_content">
-                                    <p>{album.name}</p>
+                            <div className="album_container">
+                                <div className="singleAlbum" key={album.id}>
+                                    <div className="filmInfo_content">
+                                        <p>{album.name}</p>
+                                    </div>
+                                    {/* <Link to={`/soundtrack/${movie.id}`}> */}
+                                    
+                                    <Link to={`/player/${album.id}`}>
+                                        {/* <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} /> */}
+                                    </Link>
+                                    <iframe 
+                                        src={`https://open.spotify.com/embed?uri=spotify:album:${album.id}&theme=white`}
+                                        width="100%" 
+                                        height="380" 
+                                        frameBorder="0" 
+                                        allowtransparency="true">
+                                    </iframe>
+                                    
                                 </div>
-                                {/* <Link to={`/soundtrack/${movie.id}`}> */}
-                                
-                                <Link to={`/player/${album.id}`}>
-                                    {/* <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} /> */}
-                                </Link>
-                                <iframe 
-                                    src={`https://open.spotify.com/embed?uri=spotify:album:${album.id}&theme=white`}
-                                    width="100%" 
-                                    height="380" 
-                                    frameBorder="0" 
-                                    allowtransparency="true">
-                                </iframe>
-                                
                             </div>
                         )
                     })}
                 </div>) 
             } else{ soundtrackResults = 
             <div className="btn-container clearfix">
-                <button className="playlistBtn clearfix" onClick={this.playlistSearch}>Find playlist</button>
+                <button className="playlistBtn clearfix btn" onClick={this.playlistSearch}>Find playlist</button>
             </div>
             }
         
