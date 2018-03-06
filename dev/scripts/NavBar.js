@@ -83,8 +83,7 @@ class NavBar extends React.Component {
                                     <i className="fas fa-bars"></i>
                                 </div>
 
-                                {/* <button onClick={this.logOut}>Sign Out</button> */}
-                                <div>
+                                <div onClick={this.logOut}>
                                     <i className="fas fa-user-circle" id="user"></i>
                                 </div>
 
@@ -108,7 +107,7 @@ class NavBar extends React.Component {
                         </div>
                     </div>                   
                  }
-
+                 {/* <MovieResults /> */}
             </div>
            
         )
