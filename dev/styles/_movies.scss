@@ -9,34 +9,54 @@
     width: 25%;
     float: left;
     padding: 20px;
-    min-height: 590px;
-
+    // min-height: 600px;
+    max-height: 600px;
 }
 
 .movieDetails{
-    min-height: 95px;
+    min-height: 40px;
     border-top: 2px solid black;
-    margin-top: 15px;
+    margin-top: 35px;
 }
 
 .poster{
-    min-height: 368px;
+    max-height: 368px;
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    &:hover{
+        background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));      
+        // p{
+        //     transform: translateY(-50%);
+        //     text-align: center;
+        //     margin-top: 50%;
+        // }
+    }
 }
 
 .poster img{
     width: 100%;
-    // min-height: 375px;
+    height: 100%;
 }
 
 .singleMovie h2{
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 0px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .musicBtn button{
     width: 100%;
     border-style: none;
-    padding: 5px;
+    padding-top: 0px;
     background:white;
     border-bottom: 1px solid black;
 }

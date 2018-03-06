@@ -1,9 +1,17 @@
-.genreDropDown{
+#genreDropDown{
     background: #60948B;
     padding: 40px;
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -400px;
+    transition: all 0.5s ease-in-out;
+    // z-index: -1;
 }
 
+#genreDropDown.show{
+    top: 1044px;
+}
 
 .genreList{
     background: #60948B;
@@ -30,6 +38,12 @@
     
 }
 
+#burger{
+    cursor: pointer;
+    float: left;
+    position: relative;
+    
+}
 
 .dropDownTriangle{
     border-bottom:20px solid $teal;
@@ -48,7 +62,7 @@
     background: linear-gradient(45deg,#44616D 0%,#609488 100%);
     .wrapper{
         svg{
-            float: left;
+            // float: left;
             color: $white;
             margin: 20px 53px;
             font-size:25px

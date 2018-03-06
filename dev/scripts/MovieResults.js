@@ -57,9 +57,12 @@ class MovieResults extends React.Component{
                 <h2>Heading</h2>
                 {this.state.movies.map((movie) => {
                     return (
-                    <div className="wrapper">
-                        <div className="singleMovie" key={movie.id}>
+                        <div className="wrapper" key={movie.id}>
+                        <div className="singleMovie">
                             <div className="poster">
+                                <div className="overlay">
+                                    <p>overlay</p>
+                                </div>
                                 <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
                             </div>
                             <div className="movieDetails">

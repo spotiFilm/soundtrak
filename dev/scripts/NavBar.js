@@ -13,15 +13,35 @@ class NavBar extends React.Component {
             movies: [],
             genre: [],
             userGenreSelection: "",
-            signedIn: false
+            signedIn: false,
+            token: location.hash.length > 0 ? location.hash.match(/access_token=([\w\d-.]+)/)[1] : '',
         };
         this.submitGenre = this.submitGenre.bind(this);
+        this.logOut = this.logOut.bind(this);
+        this.showMenu = this.showMenu.bind(this);
     }
 
     submitGenre (x) {
         this.setState({
             userGenreSelection: x
         })
+    }
+
+    logOut() {
+        console.log("loggging out");
+        this.setState({
+            // token: location.hash='',
+            signedIn: false
+
+        })
+    }
+
+    showMenu() {
+        // e.preventDefault();
+        // this.burger.classList.add('show');
+        // console.log('show')
+        let burgermenu = document.getElementById('genreDropDown')
+        burgermenu.classList.toggle('show');
     }
 
     componentDidMount() {
@@ -39,49 +59,56 @@ class NavBar extends React.Component {
     }
 
     render() {
-        return (
-        
+        return (  
             <div className="movieSelections">
-                <div className="loginPage">
-                    
-                    <div className="logoContainer clearfix">
-                        <div className="logo clearfix" >
-                            <div className="line smallLeft"></div>
-                            <div className="line mediumLeft"></div>
-                            <div className="line middle"></div>
-                            <div className="line mediumRight"></div>
-                            <div className="line smallRight"></div>
-                        </div>
-                        <h1>Soundtrak</h1>
-                    </div>
+                {/* {this.state.token !== '' ? */}
 
-                    <div className="buttonContainer">
-                        <a className="logInButton" href='https://spotify-movie-soundtracks.herokuapp.com/auth'>Login with Spotify</a>
-                    </div>
-               
-                </div>
-
-                <nav className="fixedHeader">
-                    <div className="wrapper clearfix">
-                        <i className="fas fa-bars"></i>
-                        <div className="navLogo clearfix">
-                            <img src="../../public/assets/soundbar2.png" alt=""/>
-                            <p>Soundtrak</p>
-                        </div>
-                    </div>
-                </nav>
-
-                <div className="wrapper genreDropDown clearfix">
-                <div className="dropDownTriangle"></div>
-                    {this.state.genre.map((item) => {
-                        // console.log(item);
-                        return (
-                            <div className="genreList">
-                                <button onClick={() => this.props.showMovieByGenre(item.id)} key={item.id}>{item.name}</button>
+                    <div className="loginPage">
+                        <div className="logoContainer clearfix">
+                            <div className="logo clearfix" >
+                                <div className="line smallLeft"></div>
+                                <div className="line mediumLeft"></div>
+                                <div className="line middle"></div>
+                                <div className="line mediumRight"></div>
+                                <div className="line smallRight"></div>
                             </div>
-                        )
-                    })}
-                </div>
+                            <h1>Soundtrak</h1>
+                        </div>
+
+                        <div className="buttonContainer">
+                            <a className="logInButton" href='https://spotify-movie-soundtracks.herokuapp.com/auth'>Login with Spotify</a>
+                        </div>
+
+                    </div>
+                     {/* : */}
+                    <div>
+                        <nav className="fixedHeader">
+                            <div className="wrapper clearfix">
+                            
+                                <div id="burger" onClick={this.showMenu.bind(this)}>
+                                    <i className="fas fa-bars"></i>
+                                </div>
+                                {/* <button onClick={this.logOut}>Sign Out</button> */}
+                                <div className="navLogo clearfix">
+                                    <img src="../../public/assets/soundbar2.png" alt="" />
+                                    <p>Soundtrak</p>
+                                </div>
+                            </div>
+                        </nav>
+
+                    <div className="wrapper clearfix" id="genreDropDown">
+                            <div className="dropDownTriangle"></div>
+                            {this.state.genre.map((item) => {
+                                // console.log(item);
+                                return (
+                                    <div className="genreList" key={item.id}>
+                                        <button onClick={() => this.props.showMovieByGenre(item.id)} key={item.id}>{item.name}</button>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>                   
+                {/* } */}
 
             </div>
            
