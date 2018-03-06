@@ -10,7 +10,7 @@
 }
 
 #genreDropDown.show{
-    top: 1044px;
+    top: 75px;
 }
 
 .genreList{
@@ -61,7 +61,13 @@
 
 .fixedHeader{
     background: linear-gradient(45deg,#44616D 0%,#609488 100%);
-    // position: fixed;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
     .wrapper{
         svg{
             float: left;
@@ -116,3 +122,9 @@
     }
 }
     
+
+@media (max-width: 500px){
+    #genreDropDown.show{
+        top: 62px;
+    }
+}
