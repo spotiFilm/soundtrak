@@ -54,21 +54,24 @@ class MovieResults extends React.Component{
         return(
             <div>   
                 <NavBar showMovieByGenre={this.showMovieByGenre}/>
-                <h2>Heading</h2>
-                {this.state.movies.map((movie) => {
-                    return (
-                        <div className="wrapper" key={movie.id}>
-                            <Link to={`/soundtrack/${movie.id}`}>
-                                <figure className="movie-details"><img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="sq-sample26" />
-                                    <figcaption><img className="logo-sm" src="/public/assets/soundbar2.png" alt="" />
-                                        <h4>{movie.title}</h4>
-                                        <div className="btn">Find Soundtrack</div>
-                                    </figcaption>
-                                </figure>
-                            </Link>
-                        
-                    </div>
-                )})}    
+                <div className="wrapper clearfix">
+                    <h2 className="results-heading">Heading</h2>
+                        <div>
+                            {this.state.movies.map((movie) => {
+                                return (
+                                    <div key={movie.id}>
+                                        <Link to={`/soundtrack/${movie.id}`}>
+                                            <figure className="movie-details"><img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="" />
+                                                <figcaption><img className="logo-sm" src="/public/assets/soundbar2.png" alt="" />
+                                                    <h4>{movie.title}</h4>
+                                                    <div className="btn">Find Soundtrack</div>
+                                                </figcaption>
+                                            </figure>
+                                        </Link>
+                                </div>
+                            )})}  
+                        </div>
+                </div>  
             </div> 
         )
     } 
