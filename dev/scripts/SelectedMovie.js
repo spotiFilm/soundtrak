@@ -106,7 +106,6 @@ class SelectedMovie extends React.Component {
             return (
                 <div>
                     {playlistResults.map((playlist) => {
-                        console.log(playlist.id);
                         return (
                             <div className="singleAlbum" key={playlist.id}>
                                 <div className="filmInfo_content">
@@ -114,12 +113,12 @@ class SelectedMovie extends React.Component {
                                 </div>
                                     <img src={`${playlist.images[0].url}`} alt=""/>
                                 <iframe
-                                    src={`https://open.spotify.com/embed?uri=spotify:playlists:${playlist.id}`}
+                                    src={`https://open.spotify.com/embed?uri=${playlist.uri}&theme=white`}
+                                    width="300"
+                                    height="380"
                                     frameBorder="0"
-                                    allow="encrypted-media"
                                     allowtransparency="true">
-                                </iframe>
-                            
+                                </iframe> 
                             </div>
                         )
                     })}
@@ -150,12 +149,14 @@ class SelectedMovie extends React.Component {
                                 <Link to={`/player/${album.id}`}>
                                     <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} />
                                 </Link>
-                                <iframe
-                                    src={`https://open.spotify.com/embed?uri=spotify:album:${album.id}`}
-                                    frameBorder="0"
-                                    allow="encrypted-media"
+                                <iframe 
+                                    src={`https://open.spotify.com/embed?uri=spotify:album:${album.id}&theme=white`}
+                                    width="300" 
+                                    height="380" 
+                                    frameBorder="0" 
                                     allowtransparency="true">
                                 </iframe>
+                                
                             </div>
                         )
                     })}
