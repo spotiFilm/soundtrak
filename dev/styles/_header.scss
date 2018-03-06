@@ -1,12 +1,12 @@
 #genreDropDown{
-    background: #60948B;
+    background: rgba(96, 148, 139, 0.95);
     padding: 40px;
     position: absolute;
     left: 0;
     right: 0;
     top: -400px;
     transition: all 0.5s ease-in-out;
-    // z-index: -1;
+    z-index: 9;
 }
 
 #genreDropDown.show{
@@ -25,10 +25,12 @@
         font-size: 20px;
         float: left;
         border: none;
-        background-color: #60948B;
+        background-color: rgba(96, 148, 139, 0);
         text-align: left;
         padding: 8px 40px;
         color: white;
+        letter-spacing: 1px;
+        transition: all 0.3s ease-in-out;
          &:hover, 
          &:active{
             color: $white;
@@ -42,11 +44,10 @@
     cursor: pointer;
     float: left;
     position: relative;
-    
 }
 
 .dropDownTriangle{
-    border-bottom:20px solid $teal;
+    border-bottom:20px solid rgba(96, 148, 139, 0.95);
     border-top:20px solid transparent;
     border-right:20px solid transparent;
     border-left:20px solid transparent;
@@ -60,17 +61,19 @@
 
 .fixedHeader{
     background: linear-gradient(45deg,#44616D 0%,#609488 100%);
+    // position: fixed;
     .wrapper{
         svg{
-            // float: left;
+            float: left;
             color: $white;
-            margin: 20px 53px;
-            font-size:25px
+            margin: 20px 20px;
+            font-size:25px;
+            cursor: pointer;                        
         }
         .navLogo{
             float: right;
             color: $white;
-            margin-right: 40px;
+            margin-right: 20px;
         }
     }
 }
@@ -92,4 +95,24 @@
 }
 
 
+@media (max-width: 500px){
+    .navLogo{
+        img{
+            width: 45px;
+            margin: 14px 0;
+        }
+        p{
+            font-size: 25px;
+            margin: 10px;
+        }
+    }
+    
+    .fixedHeader{
+        .wrapper{
+            svg{
+                margin: 20px 10px 20px 20px;
+            }
+        }
+    }
+}
     
