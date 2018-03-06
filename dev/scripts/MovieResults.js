@@ -58,7 +58,15 @@ class MovieResults extends React.Component{
                 {this.state.movies.map((movie) => {
                     return (
                         <div className="wrapper" key={movie.id}>
-                        <div className="singleMovie">
+                            <Link to={`/soundtrack/${movie.id}`}>
+                                <figure class="snip1321"><img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt="sq-sample26" />
+                                    <figcaption><img className="logo-sm" src="/public/assets/soundbar2.png" alt="" />
+                                        <h4>{movie.title}</h4>
+                                        <h2>Search for Soundtrack</h2>
+                                    </figcaption><a href="#"></a>
+                                </figure>
+                            </Link>
+                        {/* <div className="singleMovie">
                             <div className="poster">
                                 <div className="overlay">
                                     <p>overlay</p>
@@ -78,7 +86,7 @@ class MovieResults extends React.Component{
                                     </button>
                                 </Link>
                             </div>                        
-                        </div>  
+                        </div>   */}
                     </div>
                 )})}    
             </div> 
