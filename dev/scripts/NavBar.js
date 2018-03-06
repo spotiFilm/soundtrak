@@ -88,7 +88,12 @@ class NavBar extends React.Component {
                                 <div id="burger" onClick={this.showMenu.bind(this)}>
                                     <i className="fas fa-bars"></i>
                                 </div>
+
                                 {/* <button onClick={this.logOut}>Sign Out</button> */}
+                                <div>
+                                    <i className="fas fa-user-circle" id="user"></i>
+                                </div>
+
                                 <div className="navLogo clearfix">
                                     <img src="../../public/assets/soundbar2.png" alt="" />
                                     <p>Soundtrak</p>
