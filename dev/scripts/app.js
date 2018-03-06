@@ -11,12 +11,13 @@ import SpotifyWidget from './SpotifyWidget';
 import NavBar from './NavBar';
 
 class App extends React.Component {
+    constructor() {
+      super();
+    }
     componentDidMount() {
       const url = new URL(location.href);
       tokens.access_token = url.searchParams.get('access_token');
       tokens.refresh_token = url.searchParams.get('refresh_token');
-
-      console.log(tokens);
     }
 
     render() {
@@ -25,6 +26,7 @@ class App extends React.Component {
           <div>
             {/* <NavBar /> */}
             {/* <Route exact component={NavBar} />  */}
+
             <Route path="/" exact component={MovieResults} /> 
             <Route path="/soundtrack/:id" exact component={SelectedMovie} />
             <Route path="/player/:id" exact component={SpotifyWidget} />

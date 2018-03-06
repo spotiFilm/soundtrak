@@ -1,10 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 import MovieResults from './MovieResults'
+import tokens from './tokens';
 
 const apiURL = 'https://api.themoviedb.org/3'
 const apiKey = 'ba4403ee3098a16bd3c83fc121edf709'
 
+
+function checkToken() {
+    return tokens.refresh_token !== '' 
+        ? tokens.refresh_token
+        : (location.search.length > 0 ? location.search.match(/access_token=([\w\d-.]+)/)[1] : '')
+}
 
 class NavBar extends React.Component {
     constructor() {
@@ -13,12 +20,13 @@ class NavBar extends React.Component {
             movies: [],
             genre: [],
             userGenreSelection: "",
-            token: location.search.length > 0 ? location.search.match(/access_token=([\w\d-.]+)/)[1] : '',
+            token: checkToken(),
         };
         this.submitGenre = this.submitGenre.bind(this);
         this.logOut = this.logOut.bind(this);
         this.showMenu = this.showMenu.bind(this);
     }
+    
 
     submitGenre (x) {
         this.setState({
