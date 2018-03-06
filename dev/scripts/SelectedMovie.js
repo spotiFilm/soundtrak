@@ -111,10 +111,10 @@ class SelectedMovie extends React.Component {
                                 <div className="filmInfo_content">
                                     <p>{playlist.name}</p>
                                 </div>
-                                    <img src={`${playlist.images[0].url}`} alt=""/>
+                                    {/* <img src={`${playlist.images[0].url}`} alt=""/> */}
                                 <iframe
                                     src={`https://open.spotify.com/embed?uri=${playlist.uri}&theme=white`}
-                                    width="300"
+                                    width="100%"
                                     height="380"
                                     frameBorder="0"
                                     allowtransparency="true">
@@ -147,11 +147,11 @@ class SelectedMovie extends React.Component {
                                 {/* <Link to={`/soundtrack/${movie.id}`}> */}
                                 
                                 <Link to={`/player/${album.id}`}>
-                                    <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} />
+                                    {/* <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} /> */}
                                 </Link>
                                 <iframe 
                                     src={`https://open.spotify.com/embed?uri=spotify:album:${album.id}&theme=white`}
-                                    width="300" 
+                                    width="100%" 
                                     height="380" 
                                     frameBorder="0" 
                                     allowtransparency="true">
@@ -172,11 +172,11 @@ class SelectedMovie extends React.Component {
                 <div className="wrapper">
                     <div className="filmInfo">
                         <h2>Soundtracks for {this.state.title}</h2>
+                        <div className="poster_container">
+                            <img src={`https://image.tmdb.org/t/p/w300/${this.state.poster_path}`} alt={`poster for ${this.state.title}`} />
+                        </div>
                         <h3>{this.state.tagline}</h3>
                         <p>{this.state.overview}</p>
-                        <div className="poster_container">
-                            <img src={`https://image.tmdb.org/t/p/w300/${this.state.poster_path}`} alt={`poster for ${this.state.title}`}/>
-                        </div>
                     </div>
                     {soundtrackResults}
                     {this.state.playlists > 0 ? playlistRender : null}
