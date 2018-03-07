@@ -50,7 +50,6 @@ class NavBar extends React.Component {
             }
         })
             .then(({ data }) => {
-                // console.log(data.genres);
                 this.setState({
                     genre: data.genres
                 });
@@ -98,16 +97,10 @@ class NavBar extends React.Component {
                                 </div>
                             </div>
                         </nav>
-                        {/* {this.state.genre.map((item) => {
-                            return(
-                                <h3>{item.name}</h3>
-                            )
-                        })} */}
 
                     <div className="wrapper clearfix" id="genreDropDown">
                             <div className="dropDownTriangle"></div>
                             {this.state.genre.map((item) => {
-                                // console.log(item);
                                 return (
                                     <div className="genreList" onClick={this.showMenu.bind(this)} key={item.id}>
                                         <button onClick={() => this.props.showMovieByGenre(item.id)} key={item.id}>{item.name}</button>
@@ -117,13 +110,9 @@ class NavBar extends React.Component {
                         </div>
                     </div>                   
                  }
-                 {/* <MovieResults /> */}
             </div>
-           
         )
     }
-
 }
-
 
 export default NavBar;

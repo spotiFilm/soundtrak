@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import MovieResults from './MovieResults';
 import tokens from './tokens';
-import SpotifyWidget from './SpotifyWidget';
 import NavBar from './NavBar';
 
 class App extends React.Component {
@@ -24,12 +23,8 @@ class App extends React.Component {
       return (
         <Router>
           <div>
-            {/* <NavBar /> */}
-            {/* <Route exact component={NavBar} />  */}
-
             <Route path="/" exact component={MovieResults} /> 
             <Route path="/soundtrack/:id" exact component={SelectedMovie} />
-            <Route path="/player/:id" exact component={SpotifyWidget} />
           </div>
         </Router>
       )
