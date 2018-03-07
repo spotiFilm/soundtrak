@@ -169,7 +169,7 @@ class SelectedMovie extends React.Component {
                 </div>) 
             } else{ soundtrackResults = 
             <div className="btn-container clearfix">
-                <button className="playlistBtn clearfix btn" onClick={this.playlistSearch}>Find playlist</button>
+                <button className="playlistBtn clearfix btn" onClick={this.playlistSearch}>Find Playlist</button>
             </div>
             }
         
