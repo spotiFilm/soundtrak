@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import tokens from './tokens';
 import { Link } from 'react-router-dom';
-import SpotifyWidget from './SpotifyWidget';
 import NavBar from './NavBar';
 
 const apiURL = 'https://api.themoviedb.org/3'
@@ -29,11 +28,9 @@ class SelectedMovie extends React.Component {
         //returned token and make your request.
         tokens.getToken()
             .then((token) => {
-                // console.log(token);
                 axios({
                     url: 'https://api.spotify.com/v1/search',
                     params: {
-                        ////// change this to album///////
                         q: `album:${this.state.title}`,
                         type: 'album'
                     },
@@ -42,7 +39,6 @@ class SelectedMovie extends React.Component {
                     }
                 })
                 .then(({data}) => {
-                    // console.log(data.albums.items);
                     this.setState({
                         albums: data.albums.items
                     });
@@ -56,7 +52,6 @@ class SelectedMovie extends React.Component {
             }
         })
             .then(({ data }) => {
-                // console.log(data);
                 this.setState({
                     overview: data.overview,
                     tagline: data.tagline,
@@ -66,16 +61,13 @@ class SelectedMovie extends React.Component {
             });
     }
 
-    //ASK RYAN -how do we make the query search using a more general search string?
+
     playlistSearch() {
         tokens.getToken()
             .then((token) => {
-                console.log(token);
                 axios({
                     url: 'https://api.spotify.com/v1/search',
                     params: {
-                        //this is hardcoded temporarily because {this.state.title} is 
-                        //to specific and returns 0 results (: is included in title)
                         q: `${this.state.title.replace(/[:]/ig,'')}`,
                         type: 'playlist'
                     },
@@ -84,7 +76,6 @@ class SelectedMovie extends React.Component {
                     }
                 })
                 .then(({data}) => {
-                    console.log(data.playlists.items);
                     this.setState(
                         {
                         playlists: data.playlists.items
@@ -93,15 +84,12 @@ class SelectedMovie extends React.Component {
                         }); 
                 })
             })
-        // playlistRender();
     }
 
 
     playlistRender() {
         
         let playlistResults = this.state.playlists;
-        
-
 
         if (playlistResults.length > 0) {
             return (
@@ -113,7 +101,6 @@ class SelectedMovie extends React.Component {
                                     <div className="filmInfo_content">
                                         <p>{playlist.name}</p>
                                     </div>
-                                        {/* <img src={`${playlist.images[0].url}`} alt=""/> */}
                                     <iframe
                                         src={`https://open.spotify.com/embed?uri=${playlist.uri}&theme=white`}
                                         width="100%"
@@ -135,7 +122,6 @@ class SelectedMovie extends React.Component {
         let filteredResults = this.state.albums.filter((album) => {
             return album.album_type === 'album';
         })
-        console.log(filteredResults);
 
         let soundtrackResults = null
             if (filteredResults.length > 0){
@@ -149,7 +135,6 @@ class SelectedMovie extends React.Component {
                                     <div className="filmInfo_content">
                                         <p>{album.name}</p>
                                     </div>
-                                    {/* <Link to={`/soundtrack/${movie.id}`}> */}
                                     
                                     <Link to={`/player/${album.id}`}>
                                         {/* <img src={`${album.images[1].url}`} alt={`album cover for ${album.name}`} /> */}

@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
 import tokens from './tokens';
-// import SpotifyApi from './SpotifyApi';
 
 const apiURL = 'https://api.themoviedb.org/3'
 const apiKey = 'ba4403ee3098a16bd3c83fc121edf709'
@@ -32,11 +31,9 @@ class MovieResults extends React.Component{
             params: {
                 api_key: 'ba4403ee3098a16bd3c83fc121edf709',
                 total_results: 3
-                
             }
         })
         .then(({ data }) => {
-            // console.log(data);
             this.setState({
                 movies: data.results
             });
@@ -45,7 +42,6 @@ class MovieResults extends React.Component{
 
 
     showMovieByGenre(genre) {
-        console.log(genre); 
         axios.get(`${apiURL}/genre/${genre}/movies`, {
             params: {
                 api_key: 'ba4403ee3098a16bd3c83fc121edf709',
@@ -90,10 +86,3 @@ class MovieResults extends React.Component{
 
 
 export default MovieResults;
-
-{/* {this.state.token !== '' ?    */ }
-
-
-{/* <h2>Heading</h2> */}
-
-
